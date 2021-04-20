@@ -1,0 +1,78 @@
+If the guy's name is a subsequence of his crush's name, then she is going to accept him, otherwise she will reject him.
+
+Input
+
+First line contains T, the number of test cases.
+Next T lines contain two strings S1 and S2 which are the guy's name and his crush's name respectively.
+
+Output
+
+For each test case, according to Guru's mystery, if the crush is going to accept the guy then print "Love you too", otherwise print "We are only friends".
+
+Sample Input
+4
+kalyan nobodyintheworld
+rahul allgirlsallhunontheplanet
+physicsguy nobodynobodylikesitbetter
+lal llaggyel
+
+Sample Output
+We are only friends
+Love you too
+We are only friends
+Love you too
+
+
+Solution:-
+
+import java.util.*;
+
+class Solution
+{
+
+    static boolean mySterious(String s1,String s2)
+    {
+
+        int indexS1 = 0;
+
+        for(int i=0;i<s2.length();i++)
+        {
+            if(s2.charAt(i) == s1.charAt(indexS1))
+                indexS1++;
+            
+            if(indexS1 == s1.length())
+                break;
+        }
+
+        if(indexS1 == s1.length())
+            return true;
+        return false;
+
+    }
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+
+        int t = sc.nextInt();
+
+        for(int i=1;i<=t;i++)
+        {
+            String s1 = sc.next();
+            
+            String s2 = sc.next();
+
+            if(mySterious(s1,s2))
+            {
+                System.out.println("Love you too");
+            }
+            else
+            {
+                System.out.println("We are only friends");
+            }
+
+        }
+
+        
+
+    }
+}
